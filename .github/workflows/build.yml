@@ -25,4 +25,4 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
         file: ${{ matrix.image }}.Dockerfile
-        repository: devonm/molecule-test-${{ matrix.image }}:latest
+        tags: devonm/molecule-test-${{ matrix.image }}:latest
