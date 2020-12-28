@@ -17,9 +17,10 @@ rm -f /lib/systemd/system/anaconda.target.wants/*;
 VOLUME [ "/sys/fs/cgroup" ]
 
 RUN yum -y update \
-    && yum -y install sudo python python-pip epel-release
+    && yum -y install sudo which python python-pip epel-release \
+    && yum clean all
 
 # Disable requiretty.
-RUN sed -i -e 's/^\(Defaults\s*requiretty\)/#--- \1/'  /etc/sudoers 
+RUN sed -i -e 's/^\(Defaults\s*requiretty\)/#--- \1/' etc/sudoers 
 
 CMD ["/usr/sbin/init"]
