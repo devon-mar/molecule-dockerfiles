@@ -17,7 +17,8 @@ rm -f /lib/systemd/system/anaconda.target.wants/*;
 VOLUME [ "/sys/fs/cgroup" ]
 
 RUN yum -y update \
-    && yum -y install sudo which python python-pip python-setuptools epel-release \
+    && yum -y install epel-release
+    && yum -y install sudo which python python2-pip python-setuptools \
     && yum clean all
 
 # Disable requiretty.
