@@ -11,6 +11,8 @@ RUN apt-get update \
     && rm -Rf /usr/share/doc && rm -Rf /usr/share/man \
     && apt-get clean
 
+RUN pip install --upgrade pip
+
 VOLUME ["/sys/fs/cgroup"]
 
 CMD ["/lib/systemd/systemd"]

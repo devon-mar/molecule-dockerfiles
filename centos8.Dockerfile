@@ -20,6 +20,8 @@ RUN yum -y update \
          epel-release \
     && yum clean all
 
+RUN pip install --upgrade pip
+
 # Disable requiretty.
 RUN sed -i -e 's/^\(Defaults\s*requiretty\)/#--- \1/'  /etc/sudoers
 
