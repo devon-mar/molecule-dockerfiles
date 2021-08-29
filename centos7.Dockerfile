@@ -18,10 +18,10 @@ VOLUME [ "/sys/fs/cgroup" ]
 
 RUN yum -y update \
     && yum -y install epel-release \
-    && yum -y install sudo which python3 python3-pip python-setuptools \
+    && yum -y install sudo which python python2-pip python-setuptools \
     && yum clean all
 
-RUN pip3 install --upgrade pip
+RUN pip install --upgrade pip
 
 # Disable requiretty.
 RUN sed -i -e 's/^\(Defaults\s*requiretty\)/#--- \1/' etc/sudoers 
