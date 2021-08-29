@@ -11,7 +11,7 @@ RUN apt-get update \
     && rm -Rf /usr/share/doc && rm -Rf /usr/share/man \
     && apt-get clean
 
-RUN pip install --upgrade pip
+RUN pip install --upgrade "pip<21.0"
 
 VOLUME ["/sys/fs/cgroup"]
 

@@ -21,7 +21,7 @@ RUN yum -y update \
     && yum -y install sudo which python python2-pip python-setuptools \
     && yum clean all
 
-RUN pip install --upgrade pip
+RUN pip install --upgrade "pip<21.0"
 
 # Disable requiretty.
 RUN sed -i -e 's/^\(Defaults\s*requiretty\)/#--- \1/' etc/sudoers 
