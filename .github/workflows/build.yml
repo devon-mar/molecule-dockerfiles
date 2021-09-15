@@ -39,5 +39,5 @@ jobs:
         context: .
         file: ${{ matrix.image }}.Dockerfile
         platforms: linux/amd64,linux/arm64
-        tags: devonm/docker-centos-ansible:latest
+        tags: devonm/molecule-test-${{ matrix.image }}:latest
         push: true
