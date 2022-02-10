@@ -2,11 +2,10 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ master ]
   schedule:
     - cron: "0 0 * * 0"
-jobs:
 
+jobs:
   build:
     strategy:
       matrix:
@@ -29,6 +28,7 @@ jobs:
 
     - name: Login to DockerHub
       uses: docker/login-action@v1
+      if: ${{ github.ref == 'refs/heads/master' }}
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
@@ -40,4 +40,4 @@ jobs:
         file: ${{ matrix.image }}.Dockerfile
         platforms: linux/amd64,linux/arm64
         tags: devonm/molecule-test-${{ matrix.image }}:latest
-        push: true
+        push: ${{ github.ref == 'refs/heads/master' }}
