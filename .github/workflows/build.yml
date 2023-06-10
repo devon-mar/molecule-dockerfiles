@@ -16,6 +16,7 @@ jobs:
           - rockylinux9
           - debian10
           - debian11
+          - debian12
     runs-on: ubuntu-latest
 
     steps:
